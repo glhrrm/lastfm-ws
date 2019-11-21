@@ -2,6 +2,7 @@ package com.example.pw2;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import com.example.pw2.models.Album;
 import com.example.pw2.models.AlbumRepository;
@@ -9,28 +10,20 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-// import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@CrossOrigin
+@RestController
 public class MainController {
 
     @Autowired
     private AlbumRepository albumRepository;
 
-    // @GetMapping("/")
-    // public ModelAndView list() {
-    //     ModelAndView modelAndView = new ModelAndView("index");
-    //     modelAndView.addObject("albums", albumRepository.findAll());
-    //     modelAndView.addObject(new Album());
-    //     return modelAndView;
-    // }
-
     @GetMapping("/{username}")
-    public ModelAndView getAlbumsByUser(@PathVariable String username) throws IOException {
+    public List<Album> getAlbumsByUser(@PathVariable String username) throws IOException {
         URL source = new URL("http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=" + username
                 + "&api_key=40824a562c9ab20ff7d4d15766b8b52a&format=json");
 
@@ -45,9 +38,11 @@ public class MainController {
             albumRepository.save(album);
         }
 
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("albums", albumRepository.findAll());
-        modelAndView.addObject(new Album());
-        return modelAndView;
+        // ModelAndView modelAndView = new ModelAndView("index");
+        // modelAndView.addObject("albums", albumRepository.findAll());
+        // modelAndView.addObject(new Album());
+        // return modelAndView;
+
+        return (List<Album>) albumRepository.findAll();
     }
 }

@@ -1,32 +1,20 @@
 <template>
-  <div id="app">
-    <Todos />
-    <footer class="info">
-      <p>Based on a project written by <a href="http://evanyou.me">Evan You</a></p>
-      <p>Original Vue TodoApp project is <a href="https://vuejs.org/v2/examples/todomvc.html">here</a></p>
-      <p>Modified for this tutorial by Andrew Hughes</p>
-    </footer>
+  <div class="container">
+    <AlbumApp />
   </div>
 </template>
 
 <script>
-  import Albums from './components/Albums'
-  // app Vue instance
-  const app = {
-    name: 'app',
-    components: {
-      Albums
-    },
-    // app initial state
-    data: () => {
-      return {
-      }
-    }
-  }
+import AlbumApp from "./components/AlbumApp.vue";
 
-  export default app
+export default {
+  name: "app",
+  components: {
+    AlbumApp
+  }
+};
 </script>
 
 <style>
-  [v-cloak] { display: none; }
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
 </style>

@@ -14,12 +14,12 @@ public class Album implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String name;
     private String artist;
     private int playcount;
     private String image;
-    
+
     @Override
     public String toString() {
         return artist + ": " + name + " - " + playcount + " - " + image;
@@ -56,4 +56,9 @@ public class Album implements Serializable {
     public void setArtist(String artist) {
         this.artist = artist;
     }
+
+    public Long getId() {
+        return id;
+    }
+
 }

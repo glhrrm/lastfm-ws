@@ -9,6 +9,16 @@
             "mainClass": "com.example.pw2.ConsumingRestApplication",
             "projectName": "pw2",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-StatelessApplication<pw2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.pw2_teste.StatelessApplication",
+            "projectName": "pw2",
+            "args": ""
         }
     ]
 }
