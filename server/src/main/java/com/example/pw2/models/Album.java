@@ -1,64 +1,60 @@
 package com.example.pw2.models;
 
-import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-public class Album implements Serializable {
+import lombok.Data;
 
-    private static final long serialVersionUID = 1L;
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Album {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    @JsonProperty("mbid")
+    private String id;
 
+    @JsonProperty("name")
     private String name;
+
     private String artist;
-    private int playcount;
-    private String image;
+
+    @JsonProperty("playcount")
+    private String playcount;
+
+    private String image;    
+
+    @JsonProperty("artist")
+    private void unpackArtist(Map<String, Object> artist) {
+        this.artist = (String) artist.get("name");
+    }
+
+    @JsonProperty("image")
+    private void unpackImage(List<Map<String, Object>> image) {
+        this.image = (String) image.get(1).get("#text");
+    }
 
     @Override
     public String toString() {
-        return artist + ": " + name + " - " + playcount + " - " + image;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPlaycount(int playcount) {
-        this.playcount = playcount;
+        return "id: " + id + "; name: " + name + "; artist: " + artist + "; playcount: " + playcount + "; image: "
+                + image;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPlaycount() {
-        return playcount;
+    public String getArtist() {
+        return artist;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getArtist() {
-        return artist;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
-    public Long getId() {
-        return id;
+    public String getPlaycount() {
+        return playcount;
     }
 
 }
