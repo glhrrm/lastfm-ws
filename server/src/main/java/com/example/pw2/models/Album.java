@@ -12,8 +12,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Album {
 
-    @JsonProperty("mbid")
-    private String id;
+    private int position;
 
     @JsonProperty("name")
     private String name;
@@ -21,9 +20,14 @@ public class Album {
     private String artist;
 
     @JsonProperty("playcount")
-    private String playcount;
+    private int playcount;
 
     private String image;    
+
+    @JsonProperty("@attr")
+    private void unpackPosition(Map<String, Object> attr) {
+        this.position = Integer.valueOf((String) attr.get("rank"));
+    }
 
     @JsonProperty("artist")
     private void unpackArtist(Map<String, Object> artist) {
@@ -33,12 +37,6 @@ public class Album {
     @JsonProperty("image")
     private void unpackImage(List<Map<String, Object>> image) {
         this.image = (String) image.get(1).get("#text");
-    }
-
-    @Override
-    public String toString() {
-        return "id: " + id + "; name: " + name + "; artist: " + artist + "; playcount: " + playcount + "; image: "
-                + image;
     }
 
     public String getName() {
@@ -53,8 +51,12 @@ public class Album {
         return image;
     }
 
-    public String getPlaycount() {
+    public int getPlaycount() {
         return playcount;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
 }
