@@ -22,7 +22,9 @@ public class Album {
     @JsonProperty("playcount")
     private int playcount;
 
-    private String image;    
+    private String image; 
+    
+    private List<Track> tracks;
 
     @JsonProperty("@attr")
     private void unpackPosition(Map<String, Object> attr) {
@@ -37,26 +39,6 @@ public class Album {
     @JsonProperty("image")
     private void unpackImage(List<Map<String, Object>> image) {
         this.image = (String) image.get(1).get("#text");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getArtist() {
-        return artist;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public int getPlaycount() {
-        return playcount;
-    }
-
-    public int getPosition() {
-        return position;
     }
 
 }
