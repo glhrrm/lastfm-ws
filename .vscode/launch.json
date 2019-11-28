@@ -19,6 +19,16 @@
             "mainClass": "com.example.pw2_teste.StatelessApplication",
             "projectName": "pw2",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-LastfmWsApplication<pw2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.pw2.LastfmWsApplication",
+            "projectName": "pw2",
+            "args": ""
         }
     ]
 }
