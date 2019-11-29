@@ -5,9 +5,7 @@
 </template>
 
 <script>
-export default {
-  name: "logo"
-};
+export default {};
 </script>
 
 <style>

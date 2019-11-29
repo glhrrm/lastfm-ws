@@ -1,22 +1,15 @@
 <template>
   <input
     id="input"
-    class="input has-text-centered"
     type="text"
     placeholder="Your Last.fm username"
     v-model="username"
-    @input="submit"
+    v-on:input="submit"
   />
 </template>
 
 <script>
 export default {
-  name: "username",
-  data() {
-    return {
-      username: ""
-    };
-  },
   methods: {
     submit: function() {
       this.$emit("inputData", this.username);

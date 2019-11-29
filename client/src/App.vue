@@ -4,11 +4,11 @@
       <Logo />
     </div>
     <div class="inline">
-      <Username @inputData="updateUsername" />
+      <Username v-on:inputData="updateUsername" />
     </div>
     <div class="inline">
-      <Period @inputData="updatePeriod" />
-      <Search :username="username" :period="period" />
+      <Period v-on:inputData="updatePeriod" />
+      <Search v-bind:username="username" v-bind:period="period" />
     </div>
   </div>
 </template>
@@ -20,18 +20,15 @@ import Period from "./components/Period";
 import Search from "./components/Search";
 
 export default {
-  name: "app",
   components: {
     Logo,
     Username,
     Period,
     Search
   },
-  data: function() {
-    return {
-      username: "",
-      period: ""
-    };
+  props: {
+    username: String,
+    period: String
   },
   methods: {
     updateUsername(variable) {
@@ -67,5 +64,3 @@ export default {
   display: inline-block;
 }
 </style>
-
-// https://dev.to/alexmourer/sharing-data-between-components-invuejs-48me

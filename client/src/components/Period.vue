@@ -1,6 +1,6 @@
 <template>
-  <select id="select" v-model="period" @change="submit">
-    <option disabled selected>Choose a period</option>
+  <select id="select" v-model="period" v-on:change="submit">
+    <option disabled value="">Choose a period</option>
     <option value="overall">Overall</option>
     <option value="7day">7 days</option>
     <option value="1month">1 month</option>
@@ -12,11 +12,13 @@
 
 <script>
 export default {
-  name: "period",
-  data() {
-    return {
-      period: ""
-    };
+  props: {
+    period: {
+      type: String,
+      default() {
+        return "";
+      }
+    }
   },
   methods: {
     submit: function() {
@@ -49,5 +51,6 @@ export default {
 
 #select:focus {
   outline: none;
+  border-color: crimson;
 }
 </style>

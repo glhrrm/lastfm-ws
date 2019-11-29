@@ -1,27 +1,20 @@
 <template>
   <a v-bind:href="submit" target="_blank">
     <div id="button">
-      <span class="icon is-small">
-        <i class="fa fa-search"></i>
-      </span>
+      <i class="fa fa-search"></i>
     </div>
   </a>
 </template>
 
 <script>
 export default {
-  name: "Search",
   props: {
-    username: {
-      type: String
-    },
-    period: {
-      type: String
-    }
+    username: String,
+    period: String
   },
   computed: {
     submit: function() {
-      if (this.username != "" && this.period != "") {
+      if (this.username != null && this.period != null) {
         return (
           "http://localhost:8080/" +
           this.username +
