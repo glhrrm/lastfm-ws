@@ -14,10 +14,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
+@CrossOrigin
 public class MainController {
 
     @GetMapping("/{username}/top-albums/{period}")

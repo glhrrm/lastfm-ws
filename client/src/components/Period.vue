@@ -40,6 +40,7 @@ export default {
   border: 1.5px solid #aaa;
   color: #ccc;
   background-color: transparent;
+  font-weight: 700;
 }
 
 #select option {

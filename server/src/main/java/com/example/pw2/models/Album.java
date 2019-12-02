@@ -38,7 +38,7 @@ public class Album {
 
     @JsonProperty("image")
     private void unpackImage(List<Map<String, Object>> image) {
-        this.image = (String) image.get(1).get("#text");
+        this.image = (String) image.get(2).get("#text");
     }
 
 }
