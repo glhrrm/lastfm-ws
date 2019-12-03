@@ -10,9 +10,7 @@
       <Period v-on:inputData="updatePeriod" />
       <Search v-bind:username="username" v-bind:period="period" />
     </div>
-    <div class="inline">
-      <AlbumList v-bind:username="username" v-bind:period="period" />
-    </div>
+    <div class="inline"><AlbumList v-bind:username="username" v-bind:period="period" /></div>
   </div>
 </template>
 

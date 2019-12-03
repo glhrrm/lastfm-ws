@@ -1,6 +1,6 @@
 <template>
   <div class="album-list">
-    <div v-for="album in topAlbums" :key="album.position" v-bind:topAlbums="topAlbums">
+    <div v-for="album in topAlbums" :key="album.position">
       <Album
         v-bind:image="album.image"
         v-bind:position="album.position"
