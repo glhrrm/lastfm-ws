@@ -10,6 +10,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      username: ""
+    };
+  },
   methods: {
     submit: function() {
       this.$emit("inputData", this.username);
@@ -30,6 +35,7 @@ export default {
   border: 1.5px solid #aaa;
   color: #ccc;
   background-color: transparent;
+  font-weight: 700;
 }
 
 #input::placeholder {
@@ -38,7 +44,7 @@ export default {
 
 #input:focus {
   outline: none;
-  border-color: crimson;
+  border-color: darkred;
   text-decoration: none;
 }
 </style>

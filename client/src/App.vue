@@ -10,6 +10,9 @@
       <Period v-on:inputData="updatePeriod" />
       <Search v-bind:username="username" v-bind:period="period" />
     </div>
+    <div class="inline">
+      <AlbumList v-bind:username="username" v-bind:period="period" />
+    </div>
   </div>
 </template>
 
@@ -18,17 +21,22 @@ import Logo from "./components/Logo";
 import Username from "./components/Username";
 import Period from "./components/Period";
 import Search from "./components/Search";
+import AlbumList from "./components/AlbumList";
 
 export default {
   components: {
     Logo,
     Username,
     Period,
+    AlbumList,
     Search
   },
-  props: {
-    username: String,
-    period: String
+  data() {
+    return {
+      username: "",
+      period: "",
+      topAlbums: ""
+    };
   },
   methods: {
     updateUsername(variable) {
@@ -42,7 +50,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap");
 
 * {
   box-sizing: border-box;

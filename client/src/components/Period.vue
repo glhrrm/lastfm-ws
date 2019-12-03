@@ -12,12 +12,9 @@
 
 <script>
 export default {
-  props: {
-    period: {
-      type: String,
-      default() {
-        return "";
-      }
+  data() {
+    return {
+      period: ""
     }
   },
   methods: {
@@ -40,6 +37,7 @@ export default {
   border: 1.5px solid #aaa;
   color: #ccc;
   background-color: transparent;
+  font-weight: 700;
 }
 
 #select option {
@@ -51,6 +49,6 @@ export default {
 
 #select:focus {
   outline: none;
-  border-color: crimson;
+  border-color: darkred;
 }
 </style>

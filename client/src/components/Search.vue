@@ -1,7 +1,7 @@
 <template>
   <a v-bind:href="submit" target="_blank">
     <div id="button">
-      <i class="fa fa-search"></i>
+      <i class="fa fa-code"></i>
     </div>
   </a>
 </template>
@@ -12,9 +12,14 @@ export default {
     username: String,
     period: String
   },
+  data() {
+    return {
+      topAlbums: []
+    };
+  },
   computed: {
-    submit: function() {
-      if (this.username != null && this.period != null) {
+    submit() {
+      if (this.username != "" && this.period != "") {
         return (
           "http://localhost:8080/" +
           this.username +
