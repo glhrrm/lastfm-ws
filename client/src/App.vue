@@ -9,9 +9,14 @@
     <div class="inline">
       <Period v-on:inputData="updatePeriod" />
       <Search v-bind:username="username" v-bind:period="period" />
+      <Show v-bind:username="username" v-bind:period="period" v-bind:topAlbums="topAlbums" v-on:inputAlbums="updateTopAlbums" />
     </div>
     <div class="inline">
-      <AlbumList v-bind:username="username" v-bind:period="period" />
+      <AlbumList
+        v-bind:username="username"
+        v-bind:period="period"
+        v-bind:topAlbums="topAlbums"
+      />
     </div>
   </div>
 </template>
@@ -21,6 +26,7 @@ import Logo from "./components/Logo";
 import Username from "./components/Username";
 import Period from "./components/Period";
 import Search from "./components/Search";
+import Show from "./components/Show";
 import AlbumList from "./components/AlbumList";
 
 export default {
@@ -29,7 +35,8 @@ export default {
     Username,
     Period,
     AlbumList,
-    Search
+    Search,
+    Show
   },
   data() {
     return {
@@ -44,6 +51,9 @@ export default {
     },
     updatePeriod(variable) {
       this.period = variable;
+    },
+    updateTopAlbums(variable) {
+      this.topAlbums = variable;
     }
   }
 };

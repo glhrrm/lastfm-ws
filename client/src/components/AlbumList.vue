@@ -8,35 +8,31 @@
         v-bind:albumName="album.name"
       />
     </div>
-    <button v-on:click="this.getAlbums">Show albums</button>
   </div>
 </template>
 
 <script>
 import Album from "./Album";
+
 export default {
   components: {
     Album
   },
   props: {
     username: String,
-    period: String
-  },
-  data() {
-    return {
-      topAlbums: ""
-    };
+    period: String,
+    topAlbums: String
   },
   methods: {
-    getAlbums() {
-      if (this.username != "" && this.period != "") {
-        fetch(
-          `http://localhost:8080/${this.username}/top-albums/${this.period}`
-        )
-          .then(response => response.json())
-          .then(data => (this.topAlbums = data));
-      }
-    }
+    // getAlbums() {
+    //   if (this.username != "" && this.period != "") {
+    //     fetch(
+    //       `http://localhost:8080/${this.username}/top-albums/${this.period}`
+    //     )
+    //       .then(response => response.json())
+    //       .then(data => (this.topAlbums = data));
+    //   }
+    // }
   }
 };
 </script>

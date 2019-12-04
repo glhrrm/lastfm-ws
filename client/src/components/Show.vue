@@ -1,6 +1,6 @@
 <template>
-  <button id="button" v-on:click="this.getAlbums">
-    <i class="fa fa-eye"></i>
+  <button id="show-button" v-on:click="getAlbums">
+    <i class="fa fa-search"></i>
   </button>
 </template>
 
@@ -23,6 +23,7 @@ export default {
         )
           .then(response => response.json())
           .then(data => (this.topAlbums = data));
+        this.$emit("inputAlbums", this.topAlbums);
       }
     }
   }
@@ -30,7 +31,7 @@ export default {
 </script>
 
 <style>
-#button {
+#show-button {
   border: none;
   padding: 10px;
   margin: 10px;
@@ -41,10 +42,10 @@ export default {
   color: #ccc;
   background-color: transparent;
 }
-#button a {
+#show-button a {
   color: #ccc;
 }
-#button:hover {
+#show-button:hover {
   background-color: darkred;
 }
 </style>
