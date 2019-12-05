@@ -8,15 +8,13 @@
     </div>
     <div class="inline">
       <Period v-on:inputData="updatePeriod" />
-      <Search v-bind:username="username" v-bind:period="period" />
-      <Show v-bind:username="username" v-bind:period="period" v-bind:topAlbums="topAlbums" v-on:inputAlbums="updateTopAlbums" />
     </div>
     <div class="inline">
-      <AlbumList
-        v-bind:username="username"
-        v-bind:period="period"
-        v-bind:topAlbums="topAlbums"
-      />
+      <ListButton v-on:click.native="getAlbums" />
+      <GetJsonButton v-bind:username="username" v-bind:period="period" />
+    </div>
+    <div class="inline">
+      <AlbumList v-bind:topAlbums="topAlbums" />
     </div>
   </div>
 </template>
@@ -25,8 +23,8 @@
 import Logo from "./components/Logo";
 import Username from "./components/Username";
 import Period from "./components/Period";
-import Search from "./components/Search";
-import Show from "./components/Show";
+import GetJsonButton from "./components/GetJsonButton";
+import ListButton from "./components/ListButton";
 import AlbumList from "./components/AlbumList";
 
 export default {
@@ -35,14 +33,14 @@ export default {
     Username,
     Period,
     AlbumList,
-    Search,
-    Show
+    GetJsonButton,
+    ListButton
   },
   data() {
     return {
       username: "",
       period: "",
-      topAlbums: ""
+      topAlbums: []
     };
   },
   methods: {
@@ -52,8 +50,16 @@ export default {
     updatePeriod(variable) {
       this.period = variable;
     },
-    updateTopAlbums(variable) {
-      this.topAlbums = variable;
+    getAlbums() {
+      if (this.username != "" && this.period != "") {
+        fetch(
+          `http://localhost:8080/${this.username}/top-albums/${this.period}`
+        )
+          .then(response => response.json())
+          .then(data => (this.topAlbums = data));
+      } else {
+        alert("Fill in all fields")
+      }
     }
   }
 };
@@ -76,7 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .inline {

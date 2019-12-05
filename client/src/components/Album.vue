@@ -54,14 +54,16 @@ export default {
 
 .position {
   font-weight: 700;
+  font-size: 12px;
+  color: #aaa;
 }
 
 .artist-name {
   font-weight: 400;
+  font-size: 14px;
 }
 
 .album-name {
   font-weight: 400;
-  font-style: italic;
 }
 </style>

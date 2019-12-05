@@ -7,7 +7,7 @@ It uses Vue.js as a client and produces a JSON file containing some info about t
 `mvnw spring-boot:run`
 
 ## Run client
-`npm run dev`
+`yarn serve`
 
 ## Access app
 `http://localhost:8081`

@@ -19,21 +19,8 @@ export default {
     Album
   },
   props: {
-    username: String,
-    period: String,
-    topAlbums: String
+    topAlbums: Array
   },
-  methods: {
-    // getAlbums() {
-    //   if (this.username != "" && this.period != "") {
-    //     fetch(
-    //       `http://localhost:8080/${this.username}/top-albums/${this.period}`
-    //     )
-    //       .then(response => response.json())
-    //       .then(data => (this.topAlbums = data));
-    //   }
-    // }
-  }
 };
 </script>
 
