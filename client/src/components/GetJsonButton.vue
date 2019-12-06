@@ -17,6 +17,7 @@ export default {
       if (this.username != "" && this.period != "") {
         return `http://localhost:8080/${this.username}/top-albums/${this.period}`;
       }
+      return null;
     }
   }
 };
@@ -39,9 +40,14 @@ export default {
   background-color: transparent;
   font-weight: 700;
   width: 100px;
+  cursor: pointer;
 }
 
 #get-json-button:hover {
   background-color: darkred;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
