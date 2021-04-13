@@ -14,7 +14,7 @@ Este projeto consiste de duas partes:
 #### Rode o cliente
 `yarn serve`
 
-#### Abra o cliente
+#### Acesse o cliente
 `http://localhost:8081`
 
 ###### 🎓 Este projeto foi desenvolvido para a disciplina de Programação para Web II do curso de Sistemas para Internet do IFRS, em 2019.
