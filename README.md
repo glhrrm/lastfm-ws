@@ -17,7 +17,7 @@ Este projeto consiste de duas partes:
 #### Acesse o cliente
 `http://localhost:8081`
 
-###### 🎓 Este projeto foi desenvolvido para a disciplina de Programação para Web II do curso de Sistemas para Internet do IFRS, em 2019.
+🎓 Este projeto foi desenvolvido para a disciplina de Programação para Web II do curso de Sistemas para Internet do IFRS, em 2019.
 
 ## English
 
@@ -36,4 +36,4 @@ This project consists of two parts:
 #### Launch client
 `http://localhost:8081`
 
-###### 🎓 This project was developed for the Web Development II discipline of Internet Systems course from IFRS (Federal Institute of Rio Grande do Sul, Brazil) in 2019.
+🎓 This project was developed for the Web Development II discipline of Internet Systems course from IFRS (Federal Institute of Rio Grande do Sul, Brazil) in 2019.
